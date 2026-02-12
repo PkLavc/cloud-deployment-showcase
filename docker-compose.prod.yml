@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+  app:
+    build:
+      context: ../event-driven-integration-service
+      dockerfile: ../cloud-deployment-showcase/Dockerfile.prod
+    environment:
+      - DATABASE_URL=postgresql://username:password@db:5432/event_integration?schema=public
+      - REDIS_URL=redis://redis:6379
+      - STRIPE_WEBHOOK_SECRET=test_stripe_secret
+      - PAYPAL_WEBHOOK_SECRET=test_paypal_secret
+      - GITHUB_WEBHOOK_SECRET=test_github_secret
+      - OTEL_SERVICE_NAME=event-driven-integration-service
+      - JAEGER_ENDPOINT=http://jaeger:14268/api/traces
+      - NODE_ENV=production
+      - PORT=3001
+    depends_on:
+      - db
+      - redis
+      - jaeger
+    networks:
+      - app-network
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: event_integration
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7-alpine
+    networks:
+      - app-network
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"
+      - "14268:14268"
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge
