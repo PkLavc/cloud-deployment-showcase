@@ -1,0 +1,39 @@
+# Build stage
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine AS production
+
+WORKDIR /app
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+# Copy built application
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/prisma ./prisma
+
+# Create logs directory
+RUN mkdir -p logs
+
+# Set Node.js memory limits and optimization flags
+ENV NODE_OPTIONS="--max-old-space-size=512 --optimize-for-size --gc-interval=100"
+
+# Switch to non-root user
+USER node
+
+EXPOSE 3001
+
+# Use dumb-init to handle signals properly with memory monitoring
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "--expose-gc", "dist/index.js"]

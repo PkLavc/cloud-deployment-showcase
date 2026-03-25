@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@types/ioredis": "^4.28.10",
+    "@types/uuid": "^10.0.0",
+    "prisma": "^7.5.0",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.5.0",
+    "axios": "^1.13.6",
+    "ioredis": "^5.10.1",
+    "ioredis-mock": "^8.13.1"
+  }
+}

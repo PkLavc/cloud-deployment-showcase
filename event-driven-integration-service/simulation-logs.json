@@ -1,0 +1,127 @@
+[
+  {
+    "type": "log",
+    "message": "=== Event-Driven Integration Service Simulation ===",
+    "timestamp": "2026-03-23T17:14:39.889Z"
+  },
+  {
+    "type": "log",
+    "message": "Starting application with mocked dependencies...",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "\n1. Testing database connection...",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] Database query executed",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "\n2. Testing Redis connection...",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] Redis PING",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "\n3. Testing OpenTelemetry...",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] OpenTelemetry started",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "\n4. Simulating health check...",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "Health check result: [object Object]",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "\n5. Simulating Stripe webhook processing...",
+    "timestamp": "2026-03-23T17:14:39.896Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] Created webhook event: mock_1",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] Created payment event: mock_2",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] Redis SETEX payment:pi_test_cgz8ysa9u (3600s): {\"id\":\"pi_test_cgz8ysa9u\",\"amount\":20,\"currency\":\"usd\",\"status\":\"completed\"}",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "Stripe webhook processed successfully",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "\n6. Testing cache retrieval...",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] Redis GET payment:pi_test_cgz8ysa9u: {\"id\":\"pi_test_cgz8ysa9u\",\"amount\":20,\"currency\":\"usd\",\"status\":\"completed\"}",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "Cached payment: [object Object]",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "\n7. Testing database retrieval...",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "Database payment: [object Object]",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "\n8. Cleaning up...",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] Database disconnected",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] Redis disconnected",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "[MOCK] OpenTelemetry shutdown",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  },
+  {
+    "type": "log",
+    "message": "\n=== Simulation completed successfully ===",
+    "timestamp": "2026-03-23T17:14:39.897Z"
+  }
+]

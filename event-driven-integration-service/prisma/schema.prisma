@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model WebhookEvent {
+  id          String        @id @default(cuid())
+  eventId     String        @unique
+  provider    String
+  eventType   String
+  payload     Json
+  signature   String?
+  status      String        @default("pending")
+  processedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  // Relationship to PaymentEvent
+  paymentEvents PaymentEvent[]
+
+  @@index([provider, eventType])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model PaymentEvent {
+  id              String   @id @default(cuid())
+  paymentId       String   @unique
+  provider        String
+  amount          Float
+  currency        String
+  status          String
+  description     String?
+  metadata        Json?
+  webhookEvent    WebhookEvent? @relation(fields: [webhookEventId], references: [id])
+  webhookEventId  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([provider, status])
+  @@index([createdAt])
+}
+
+model CacheEntry {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  ttl       Int?     // Time to live in seconds
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+}
