@@ -1,0 +1,13 @@
+{
+  "service": "backend-sim",
+  "project": "cloud-deployment-showcase",
+  "status": "ok",
+  "source": "github-actions",
+  "lastUpdated": "pending-first-workflow-run",
+  "runId": "manual",
+  "metrics": {
+    "latencyMs": 173,
+    "successRate": 98.9,
+    "eventsProcessed": 1315
+  }
+}

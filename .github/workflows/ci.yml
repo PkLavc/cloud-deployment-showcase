@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-service:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: event-driven-integration-service
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: event-driven-integration-service/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Build service
+        run: npm run build
+
+  validate-compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate compose file
+        run: docker compose -f docker-compose.prod.yml config > /dev/null
