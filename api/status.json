@@ -3,11 +3,12 @@
   "project": "cloud-deployment-showcase",
   "status": "ok",
   "source": "github-actions",
-  "lastUpdated": "pending-first-workflow-run",
-  "runId": "manual",
+  "lastUpdated": "2026-04-23T01:22:29Z",
+  "runId": "24811472261",
+  "historyCount": 2,
   "metrics": {
-    "latencyMs": 173,
+    "latencyMs": 105,
     "successRate": 98.9,
-    "eventsProcessed": 1315
+    "eventsProcessed": 3186
   }
 }
