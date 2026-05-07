@@ -3,12 +3,12 @@
   "project": "cloud-deployment-showcase",
   "status": "ok",
   "source": "github-actions",
-  "lastUpdated": "2026-05-06T19:17:51Z",
-  "runId": "25455960937",
+  "lastUpdated": "2026-05-07T01:45:59Z",
+  "runId": "25471305746",
   "historyCount": 28,
   "metrics": {
-    "latencyMs": 160,
-    "successRate": 98.1,
-    "eventsProcessed": 1346
+    "latencyMs": 194,
+    "successRate": 99.9,
+    "eventsProcessed": 3747
   }
 }
