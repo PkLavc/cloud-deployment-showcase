@@ -1,11 +1,5 @@
 [
   {
-    "timestamp": "2026-05-11T08:54:03Z",
-    "latencyMs": 67,
-    "successRate": 99.1,
-    "eventsProcessed": 1566
-  },
-  {
     "timestamp": "2026-05-11T14:18:15Z",
     "latencyMs": 185,
     "successRate": 99.6,
@@ -166,5 +160,11 @@
     "latencyMs": 163,
     "successRate": 99.0,
     "eventsProcessed": 3803
+  },
+  {
+    "timestamp": "2026-05-18T07:13:03Z",
+    "latencyMs": 78,
+    "successRate": 99.8,
+    "eventsProcessed": 2388
   }
 ]
