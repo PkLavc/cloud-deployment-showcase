@@ -1,5 +1,11 @@
 # Cloud Deployment Showcase
 
+## Portfolio Case Study
+
+Full case study: https://pklavc.com/projects/cloud-deployment-showcase/
+
+This repository is part of my backend deployment portfolio. It demonstrates Docker, Nginx, GitHub Actions, deployment configuration, CI/CD workflow design, and operational deployment documentation.
+
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://github.com/PkLavc/cloud-deployment-showcase/actions)
 [![Platform: Railway](https://img.shields.io/badge/Platform-Railway-blue.svg)](https://railway.app)
 [![Docker](https://img.shields.io/badge/Docker-Containerized-blue.svg)](https://www.docker.com)
